@@ -1,22 +1,12 @@
-name: CI Minimal Test
+name: CI No Conditions
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
   hello:
     name: Hello World
     runs-on: ubuntu-latest
-    if: hashFiles('pyproject.toml') != ''
     steps:
       - run: echo "Hello from CI"
-
-  skip-me:
-    name: Skip Me
-    runs-on: ubuntu-latest
-    if: hashFiles('package-lock.json') != ''
-    steps:
-      - run: echo "This should be skipped"
