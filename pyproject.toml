@@ -1,0 +1,3 @@
+[project]
+name = "ci-if-fix-e2e-pub"
+version = "0.1.0"
