@@ -1,4 +1,4 @@
-name: CI Simple If
+name: CI HashFiles If
 
 on:
   push:
@@ -6,15 +6,15 @@ on:
 
 jobs:
   hello:
-    name: Hello World
+    name: Has pyproject
     runs-on: ubuntu-latest
-    if: true
+    if: hashFiles('pyproject.toml') != ''
     steps:
-      - run: echo "Hello from CI"
+      - run: echo "pyproject.toml found"
 
-  skip-me:
-    name: Skip Me
+  skip-no-lockfile:
+    name: No lockfile
     runs-on: ubuntu-latest
-    if: false
+    if: hashFiles('package-lock.json') != ''
     steps:
-      - run: echo "This should be skipped"
+      - run: echo "This should skip"
