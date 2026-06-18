@@ -8,13 +8,13 @@ jobs:
   hello:
     name: Has pyproject
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('pyproject.toml') != '' }}
+    if: "${{ hashFiles('pyproject.toml') != '' }}"
     steps:
       - run: echo "pyproject.toml found"
 
   skip-no-lockfile:
     name: No lockfile
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('package-lock.json') != '' }}
+    if: "${{ hashFiles('package-lock.json') != '' }}"
     steps:
       - run: echo "This should skip"
