@@ -1,4 +1,4 @@
-name: CI No Conditions
+name: CI Simple If
 
 on:
   push:
@@ -8,5 +8,13 @@ jobs:
   hello:
     name: Hello World
     runs-on: ubuntu-latest
+    if: true
     steps:
       - run: echo "Hello from CI"
+
+  skip-me:
+    name: Skip Me
+    runs-on: ubuntu-latest
+    if: false
+    steps:
+      - run: echo "This should be skipped"
